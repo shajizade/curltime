@@ -1,0 +1,26 @@
+#!/bin/bash
+
+curl -w @- -o /dev/null -s "$@" <<'EOF'
+------\n\n\n
+start:     0\n
+        -> dns request\n
+        <- dns response\n
+namelookup:  %{time_namelookup}s\n
+        -> SYN to WebServer\n
+        <- SYN/ACK\n
+connect:  %{time_connect}s\n
+        -> "Hello"\n
+        -> SSL Handshake\n
+        <- SSL Handshake\n
+appconnect:  %{time_appconnect}s\n
+        Client sets SSL Params and starts requesting\n
+pretransfer:  %{time_pretransfer}s\n
+        Any Redirect
+redirect:  %{time_redirect}s\n
+        -> HTTP Requets\n
+        Creating Response on Server\n
+        <- First Bit of Response Arrives\n
+starttransfer:  %{time_starttransfer}s\n
+        <- All Response\n
+total:  %{time_total}s\n
+EOF
