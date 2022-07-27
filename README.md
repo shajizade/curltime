@@ -2,7 +2,11 @@
 A Bash script for observe all timings in a curl request
 
 ## Installation
-Donwload `curltime` file and put it in somewhere included in your `PATH` (like `/usr/local/bin`)
+Donwload `curltime` file and put it in somewhere included in your `PATH` (like `/usr/local/bin`). You May use this:
+```
+sudo curl https://raw.githubusercontent.com/shajizade/curltime/main/curltime | sudo tee /usr/local/bin/curltime
+sudo chmod +x /usr/local/bin/curltime
+```
 
 ## Usage
 Use it just like curl. You can type `curltime` instead of `curl` in any curl command, and it will show you the timing. 
